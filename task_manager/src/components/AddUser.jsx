@@ -42,18 +42,19 @@ export default function AddUser({ onRegistered }) {
 	}
 
 	return (
-		<section style={styles.wrapper}>
-			<h2 style={styles.title}>Create Account</h2>
-			<p style={styles.subtitle}>Register a new Task Manager user account.</p>
+		<div className="items-center justify-center text-center grid place-content-center m-4">
+		<section className="w-full max-w-[480px] rounded-2xl border border-slate-300 bg-slate-50 p-6 shadow-[0_12px_30px_rgba(15,23,42,0.1)] [font-family:'Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
+			<h2 className="mb-2">Create Account</h2>
+			<p className="mb-4 text-slate-700">Register a new Task Manager user account.</p>
 
-			<form onSubmit={handleSubmit} style={styles.form}>
+			<form onSubmit={handleSubmit} className="grid gap-3">
 				<input
 					name="username"
 					placeholder="Username"
 					value={form.username}
 					onChange={handleChange}
 					required
-					style={styles.input}
+					className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
 				/>
 
 				<input
@@ -63,7 +64,7 @@ export default function AddUser({ onRegistered }) {
 					value={form.email}
 					onChange={handleChange}
 					required
-					style={styles.input}
+					className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
 				/>
 
 				<input
@@ -74,7 +75,7 @@ export default function AddUser({ onRegistered }) {
 					onChange={handleChange}
 					minLength={8}
 					required
-					style={styles.input}
+					className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
 				/>
 
 				<input
@@ -82,7 +83,7 @@ export default function AddUser({ onRegistered }) {
 					placeholder="First name"
 					value={form.first_name}
 					onChange={handleChange}
-					style={styles.input}
+					className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
 				/>
 
 				<input
@@ -90,65 +91,21 @@ export default function AddUser({ onRegistered }) {
 					placeholder="Last name"
 					value={form.last_name}
 					onChange={handleChange}
-					style={styles.input}
+					className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
 				/>
 
-				<button disabled={submitting} type="submit" style={styles.button}>
+				<button
+					disabled={submitting}
+					type="submit"
+					className="cursor-pointer rounded-[10px] bg-gradient-to-br from-sky-500 to-blue-600 px-[14px] py-3 font-bold text-white disabled:cursor-not-allowed disabled:opacity-70"
+				>
 					{submitting ? "Creating..." : "Create user"}
 				</button>
 			</form>
 
-			{error ? <p style={styles.error}>{error}</p> : null}
-			{success ? <p style={styles.success}>{success}</p> : null}
+			{error ? <p className="mt-3 font-semibold text-red-700">{error}</p> : null}
+			{success ? <p className="mt-3 font-semibold text-green-800">{success}</p> : null}
 		</section>
+		</div>
 	);
 }
-
-const styles = {
-	wrapper: {
-		width: "100%",
-		maxWidth: 480,
-		padding: 24,
-		borderRadius: 16,
-		background: "#f8fafc",
-		border: "1px solid #cbd5e1",
-		boxShadow: "0 12px 30px rgba(15, 23, 42, 0.1)",
-		fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-	},
-	title: {
-		margin: "0 0 8px",
-	},
-	subtitle: {
-		margin: "0 0 16px",
-		color: "#334155",
-	},
-	form: {
-		display: "grid",
-		gap: 12,
-	},
-	input: {
-		borderRadius: 10,
-		border: "1px solid #94a3b8",
-		padding: "11px 12px",
-		fontSize: 14,
-	},
-	button: {
-		border: "none",
-		borderRadius: 10,
-		padding: "12px 14px",
-		color: "white",
-		fontWeight: 700,
-		background: "linear-gradient(135deg, #0ea5e9, #2563eb)",
-		cursor: "pointer",
-	},
-	error: {
-		marginTop: 12,
-		color: "#b91c1c",
-		fontWeight: 600,
-	},
-	success: {
-		marginTop: 12,
-		color: "#166534",
-		fontWeight: 600,
-	},
-};

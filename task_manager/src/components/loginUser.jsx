@@ -43,24 +43,24 @@ export default function LoginUser({ onLoggedIn }) {
   }
 
   return (
-    <main style={styles.page}>
-      <section style={styles.card}>
-        <h1 style={styles.heading}>Sign In</h1>
-        <p style={styles.subheading}>Access your FindKE account.</p>
+    <main className="grid min-h-screen place-items-center bg-[radial-gradient(circle_at_20%_15%,#fef3c7_0%,transparent_35%),radial-gradient(circle_at_80%_85%,#bfdbfe_0%,transparent_32%),#f8fafc] p-5 [font-family:'Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
+      <section className="w-full max-w-[420px] rounded-[18px] border border-slate-300 bg-white/95 p-6 shadow-[0_20px_45px_rgba(30,41,59,0.16)]">
+        <h1 className="mb-[6px] text-[28px]">Sign In</h1>
+        <p className="mb-5 text-slate-700">Access your Task Manager account.</p>
 
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <label style={styles.label}>
+        <form onSubmit={handleSubmit} className="grid gap-[14px]">
+          <label className="grid gap-[6px] font-semibold text-slate-800">
             Username
             <input
               name="username"
               value={form.username}
               onChange={handleChange}
               required
-              style={styles.input}
+              className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
             />
           </label>
 
-          <label style={styles.label}>
+          <label className="grid gap-[6px] font-semibold text-slate-800">
             Password
             <input
               name="password"
@@ -68,84 +68,22 @@ export default function LoginUser({ onLoggedIn }) {
               value={form.password}
               onChange={handleChange}
               required
-              style={styles.input}
+              className="rounded-[10px] border border-slate-400 px-3 py-[11px] text-sm"
             />
           </label>
 
-          <button type="submit" disabled={submitting} style={styles.button}>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="mt-[6px] cursor-pointer rounded-[10px] bg-gradient-to-br from-teal-700 to-blue-600 px-[14px] py-3 text-[15px] font-bold text-white disabled:cursor-not-allowed disabled:opacity-70"
+          >
             {submitting ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
-        {error ? <p style={styles.error}>{error}</p> : null}
-        {message ? <p style={styles.success}>{message}</p> : null}
+        {error ? <p className="mt-3 font-semibold text-red-700">{error}</p> : null}
+        {message ? <p className="mt-3 font-semibold text-green-800">{message}</p> : null}
       </section>
     </main>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    display: "grid",
-    placeItems: "center",
-    padding: 20,
-    background:
-      "radial-gradient(circle at 20% 15%, #fef3c7 0%, transparent 35%), radial-gradient(circle at 80% 85%, #bfdbfe 0%, transparent 32%), #f8fafc",
-    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-  },
-  card: {
-    width: "100%",
-    maxWidth: 420,
-    padding: 24,
-    borderRadius: 18,
-    background: "rgba(255, 255, 255, 0.95)",
-    border: "1px solid #cbd5e1",
-    boxShadow: "0 20px 45px rgba(30, 41, 59, 0.16)",
-  },
-  heading: {
-    margin: "0 0 6px",
-    fontSize: 28,
-  },
-  subheading: {
-    margin: "0 0 20px",
-    color: "#334155",
-  },
-  form: {
-    display: "grid",
-    gap: 14,
-  },
-  label: {
-    display: "grid",
-    gap: 6,
-    fontWeight: 600,
-    color: "#1e293b",
-  },
-  input: {
-    borderRadius: 10,
-    border: "1px solid #94a3b8",
-    padding: "11px 12px",
-    fontSize: 14,
-  },
-  button: {
-    marginTop: 6,
-    border: "none",
-    borderRadius: 10,
-    padding: "12px 14px",
-    color: "white",
-    fontSize: 15,
-    fontWeight: 700,
-    background: "linear-gradient(135deg, #0f766e, #2563eb)",
-    cursor: "pointer",
-  },
-  error: {
-    marginTop: 12,
-    color: "#b91c1c",
-    fontWeight: 600,
-  },
-  success: {
-    marginTop: 12,
-    color: "#166534",
-    fontWeight: 600,
-  },
-};

@@ -105,3 +105,48 @@ export async function getUserTasks(token = getToken()) {
 
 	return parseResponse(response);
 }
+
+export async function createTask(payload, token = getToken()) {
+	if (!token) {
+		throw new Error("No auth token found. Log in first.");
+	}
+
+	const response = await fetch(`${TASKS_BASE}/`, {
+		method: "POST",
+		headers: buildHeaders(token),
+		body: JSON.stringify(payload),
+	});
+
+	return parseResponse(response);
+}
+
+export async function updateTask(taskId, payload, token = getToken()) {
+	if (!token) {
+		throw new Error("No auth token found. Log in first.");
+	}
+
+	const response = await fetch(`${TASKS_BASE}/${taskId}/`, {
+		method: "PATCH",
+		headers: buildHeaders(token),
+		body: JSON.stringify(payload),
+	});
+
+	return parseResponse(response);
+}
+
+export async function deleteTask(taskId, token = getToken()) {
+	if (!token) {
+		throw new Error("No auth token found. Log in first.");
+	}
+
+	const response = await fetch(`${TASKS_BASE}/${taskId}/`, {
+		method: "DELETE",
+		headers: buildHeaders(token),
+	});
+
+	if (!response.ok) {
+		await parseResponse(response);
+	}
+
+	return true;
+}
