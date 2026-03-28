@@ -59,7 +59,7 @@ export default function AddTask({ onCreated }) {
 	}
 
 	return (
-		<main className="grid min-h-screen place-items-center bg-[radial-gradient(circle_at_20%_15%,#fef3c7_0%,transparent_35%),radial-gradient(circle_at_80%_85%,#bfdbfe_0%,transparent_32%),#f8fafc] p-5 [font-family:'Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
+		<main className="grid min-h-screen place-items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-5 [font-family:'Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
 			<section className="w-full max-w-[520px] rounded-2xl border border-slate-300 bg-white/95 p-6 shadow-[0_20px_45px_rgba(30,41,59,0.16)]">
 				<h1 className="mb-2 text-3xl font-bold text-slate-900">Add Task</h1>
 				<p className="mb-5 text-slate-700">Create a new task for your account.</p>

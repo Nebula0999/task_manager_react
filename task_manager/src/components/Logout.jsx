@@ -1,4 +1,3 @@
-import { getCurrentUser, loginUser } from "../services";
 import { useAuth } from "./AuthContext";
 import { useState } from "react";
 

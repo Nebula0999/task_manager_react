@@ -19,7 +19,7 @@ function Layout() {
 
   return (
     <>
-      <nav className="p-4 border-b flex gap-4 bg-[radial-gradient(circle_at_20%_15%,#fef3c7_0%,transparent_35%),radial-gradient(circle_at_80%_85%,#bfdbfe_0%,transparent_32%),#f8fafc]">
+      <nav className="p-4 border-b text-center place-items-center flex flex-row justify-center gap-4 bg-[radial-gradient(circle_at_20%_15%,#fef3c7_0%,transparent_35%),radial-gradient(circle_at_80%_85%,#bfdbfe_0%,transparent_32%),#f8fafc]">
         <Link to="/">Home</Link>
         <Link to="/tasks">Tasks</Link>
         <Link to="/tasks/new">Add Task</Link>

@@ -49,8 +49,8 @@ export default function Profile() {
             {loading && <p>Loading profile...</p>}
             {error && <p>Error: {error}</p>}
             {profile && (
-                <div>
-                    <h2>{profile.username}'s Profile</h2>
+                <div className="p-3 m-4 font-sans">
+                    <h2 className="font-serif font-semibold">{profile.username}'s Profile</h2>
                     <p>Email: {profile.email}</p>
                     <p>Name: {profile.first_name} {profile.last_name}</p>
                 </div>
