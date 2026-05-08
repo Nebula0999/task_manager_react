@@ -43,7 +43,7 @@ function RenderTask() {
 
 
   return (
-    <div className="p-4 mt-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white border-blue-400 rounded w-90 items-center justify-center text-center font-serif font-medium">
+    <div className="p-4 mt-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white border-blue-400 rounded w-90 items-center justify-center text-center font-serif font-medium min-h-[500px]">
         {loading && <p>Checking authentication...</p>}
         {!loading && !auth?.token && <p>Please log in to view your tasks.</p>}
         {isLoading && <p>Loading tasks...</p>}
@@ -51,7 +51,7 @@ function RenderTask() {
         {completeMutation.error && <p>Error: {completeMutation.error.message}</p>}
         {deleteMutation.error && <p>Error: {deleteMutation.error.message}</p>}
         <div>{tasks.map((task) => (
-            <div key={task.id} className="p-2 m-2 mx-auto text-lg bg-green-400 rounded border border-blue-300">
+            <div key={task.id} className="p-2 m-2 mx-auto text-lg bg-slate-100 text-black rounded border border-blue-300">
                 <h2 className="text-blue-800">{task.title}</h2>
                 <h3>{task.priority}</h3>
                 <p>{task.description}</p>
